@@ -8,16 +8,26 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<script src="https://kit.fontawesome.com/73db696eb9.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+<!-- PANNEAU ADMIN -->
+<aside class="edit_mode admin_mode" aria-hidden="true" style="display: none;">
+	<div class="admin_mode">
+		<i class="fa-solid fa-pen-to-square"></i>
+		<p>Mode édition</p>
+	</div>
+</aside>
+<!--  -->
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+	<div class="user_disconnected" id="user_disconnected"></div>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href="#portfolio">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li class="user-active"><a id="login" href="./login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -35,7 +45,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<!-- <h2>Mes Projets</h2>
 		<div class="gallery">
 			<figure>
 				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
@@ -81,7 +91,21 @@
 				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
 				<figcaption>Hotel First Arte - New Delhi</figcaption>
 			</figure>
+		</div> -->
+		<div class="portfolio-title">
+			<h2>Mes Projets</h2>
+			<div class="admin_mode ml" aria-hidden="true" style="display: none;">
+				<i class="fa-solid fa-pen-to-square"></i>
+				<a href="#modal" class="js-modal">Modifier</a>
+			</div>
 		</div>
+		<div class="filters">
+			<button class="btn-filter btn-filter-cat-null btn-filter--active">Tous</button>
+			<button class="btn-filter btn-filter-cat-1">Objets</button>
+			<button class="btn-filter btn-filter-cat-2">Appartements</button>
+			<button class="btn-filter btn-filter-cat-3">Hôtels & restaurants</button>
+		</div>
+		<div class="gallery"></div><!-- IMG datas JSON -->
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -97,13 +121,59 @@
 		</form>
 	</section>
 </main>
-
 <footer>
 	<nav>
 		<ul>
-			<li>Mentions Légales</li>
+			<li><a href="#">Mentions Légales</a></li>
 		</ul>
 	</nav>
 </footer>
+<!--  -->
+<aside id="modal" class="modal" aria-hidden="true" style="display: none;">
+	<div class="modal-wrapper js-modal-stop">
+		<a href="" class="js-modal-close">
+			<i class="fa-solid fa-xmark"></i>
+		</a>
+		<h2>Galerie photo</h2>
+		<div class="admin-view-projects"></div><!-- IMG datas JSON -->
+		<a href="#modalProject" class="js-modal-project">Ajouter une photo</a>
+		<a class="btn-clear-admin" href="#">Supprimer la galerie</a>
+	</div>
+</aside>
+<aside id="modalProject" class="modal-project" aria-hidden="true" style="display: none;">
+	<div class="modal-wrapper js-modal-stop">
+		<div class="modal-project-logo">
+			<a href="" class="js-modal-return">
+				<i class="fa-solid fa-arrow-left"></i>
+			</a>
+			<a href="" class="js-modal-close">
+				<i class="fa-solid fa-xmark"></i>
+			</a>
+		</div>
+		<h2>Ajout photo</h2>
+		<form class="modal-project-form" action="" enctype="multipart/form-data">
+			<div class="form-group-photo">
+				<i class="fa-regular fa-image"></i>
+				<label for="photo">+ Ajouter une photo</label>
+				<input type="file" name="photo" id="photo" class="js-image">
+			</div>
+			<div class="form-group-title">
+				<label for="title">Titre</label>
+				<input class="js-title" type="text" name="title" id="title">
+			</div>
+			<div class="form-group-id">
+				<label for="category">Catégorie</label>
+				<select name="category" id="category" class="js-categoryId">
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hôtels & restaurants</option>
+				</select>
+			</div>
+			<input type="submit" class="js-add-work" value="Valider">
+		</form>
+	</div>
+</aside>
+<!--  -->
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>
