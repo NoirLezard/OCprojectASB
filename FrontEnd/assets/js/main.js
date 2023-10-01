@@ -25,7 +25,7 @@ const btnCat3 = document.querySelector(".btn-filter-cat-3");
 
 const sectionProjects = document.querySelector(".gallery");
 
-
+ 
 
 // FILTRES
 /*

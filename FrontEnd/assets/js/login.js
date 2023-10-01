@@ -72,7 +72,7 @@ submit.addEventListener("click", () => {
 // FONCTION LOGOUT==========================================================================
 */
 
-
+ 
 userConnected();
 
 // Déconnexion et suppression du token

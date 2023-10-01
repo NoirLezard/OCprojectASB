@@ -54,7 +54,7 @@ A user has been created for you with the following login credentials:
 
 ### Hosting ###
 
-https://noirlezard.github.io/OCprojetASB/
+https://noirlezard.github.io/OCprojectASB/
 
 
 #### Licensing
