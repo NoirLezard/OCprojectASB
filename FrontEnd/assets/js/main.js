@@ -374,4 +374,18 @@ async function addWork(event) {
             console.log(error);
         }
     }
+    // Check size image file
+    document.getElementById("photo").addEventListener("change", () => {
+        let fileInput = document.getElementById("photo");
+        const maxFileSize = 4 * 1024 * 1024; // 4MB
+        if (fileInput.files[0].size > maxFileSize) {
+            alert("Le fichier sélectionné est trop volumineux. La taille maximale est de 4 Mo.");
+            document.getElementById("photo").value = '';
+        }
+        else 
+            if (fileInput.files.length > 0) {
+                alert("La taille du fichier est correcte, vous pouvez envoyé !!");
+        }
+    });
+    
 }
